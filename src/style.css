@@ -1,0 +1,354 @@
+*{  
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    background-color: rgb(50, 50, 50);
+}
+
+.menu{
+    display: flex;
+    width: 100%;
+    height: 60px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 15px;
+    background-color: black;
+    color: white;
+    position: fixed;
+    z-index: 150;
+    box-shadow: 2px 0 2px rgb(148, 148, 148);
+}
+
+.menu span{
+    color: rgb(0, 255, 0);
+}
+
+.menu ul li{
+    display: inline-block;
+    list-style-type: none;
+}
+
+.menu a{
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    border: none;
+    border: 3px solid rgb(0, 0, 0);
+}
+
+.menu a:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+.menu .list-icon{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    transition: ease 0.2s;
+    cursor: pointer;
+    display: none;
+}
+
+.menu .list-icon:hover{
+    transform: scale(1.12);
+}
+
+#search-bar{
+    margin-right: 10px;
+    border: none;
+    text-indent: 2px;
+    padding: 3px;
+    border-radius: 3px;
+}
+
+.search-bar-div .search-icon{
+    font-size: 18px;
+}
+
+.activeLink{
+    background-color: rgb(50, 50, 50);
+    border: 3px solid rgb(35, 35, 35);
+}
+
+main{
+    padding: 100px 0 50px 0;
+    background-color: rgb(50, 50, 50);
+}
+
+main h1{
+    text-align: center;
+    margin-bottom: 20px;
+    color: white;
+}
+
+main .container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+main .movie-card{
+    display: inline-block;
+    margin: 20px;
+    width: 270px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid black;
+    box-shadow: 3px 2px 5px rgb(130, 130, 130);
+    cursor: pointer;
+    transition: ease-out 0.1s;
+    background-color: black;
+    color: white;
+    animation-name: movie-card;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+}
+
+main .movie-card:hover{
+    transform: scale(1.07);
+}
+
+main .movie-card img{
+    width: 100%;
+    height: 340px;
+}
+
+main .movie-card h3{
+    text-align: center;
+    padding-bottom: 8px;
+}
+
+.yellow{
+    color: rgb(255, 208, 0);
+}
+
+.background-selected-movie{
+    position: absolute;
+    width: 100%;
+    height: 120%;
+    display: flex;
+    justify-content: center;
+    z-index: 200;
+    margin-top: -160px;
+}
+
+@keyframes selected-movie {
+    0% {width: 0%; height: 30%; opacity: 0%;}
+    25% {width: 25%; height: 40%; opacity: 25%;}
+    50% {width: 45%; height: 50%; opacity: 50%;}
+    75% {width: 75%; height: 60%; opacity: 75%;}
+    100% {width: 90%; height: 75%; opacity: 100%;}
+  }
+
+main .selected-movie{
+    display: flex;
+    position: fixed;
+    top: 15vh;
+    margin: 0 auto;
+    width: 85%;
+    height: 77%;
+    border-radius: 10px;
+    padding: 40px;
+    background-color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
+    box-shadow: 3px 2px 5px rgb(130, 130, 130);
+    animation-name: selected-movie;
+    animation-duration: 0.2s;
+    animation-timing-function: ease-in;
+    overflow: hidden;
+}
+
+main .selected-movie-content{
+    flex: 50%;
+}
+
+main .selected-movie-content .header-div{
+    display: flex;
+    justify-content: space-between;
+}
+
+main .selected-movie-content img{
+    width: 13vw;
+    margin-right: 30px;
+}
+
+main .selected-movie-content h2{
+    margin-bottom: 15px;
+    font-size: 28px;
+}
+
+main .selected-movie-content p{
+    padding: 3px 0;
+    line-height: 27px;
+}
+
+main .selected-movie-content span{
+    font-weight: bold;
+    font-size: 17px;
+}
+
+main .selected-movie-content .span{
+    margin-top: 15px;
+}
+
+main .selected-movie-video{
+    flex: 50%;
+    margin-left: 20px;
+}
+
+main .selected-movie .close-img{
+    width: 20px;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    cursor: pointer;
+    transition: ease 0.7ms;
+}
+
+main .selected-movie .close-img:hover{
+    transform: scale(0.9);
+}
+
+.show-cards-button{
+    display: flex;
+    justify-content: center;
+    column-gap: 20px;
+}
+
+
+.show-cards-button button{
+    margin-top: 20px;
+    font-weight: bold;
+    font-size: 20px;
+    border: none;
+    padding: 15px;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+    box-shadow: 0px 2px 4px rgb(130, 130, 130);
+    cursor: pointer;
+    transition: ease 0.7ms;
+}
+
+.show-cards-button button:hover{
+    background-color: rgb(20, 20, 20);
+    transform: scale(1.07);
+}
+
+@media only screen and (max-width: 900px){
+
+    .menu ul li{
+        display: block;
+        height: 50px;
+        padding: 0;
+        width: 120px;
+        margin: 0;
+        padding: 0;
+    }
+
+    .menu .list-icon{
+        display: block;
+    }
+
+    .menu ul{
+        position: absolute;
+        top: 60px;
+        background-color: rgb(0, 0, 0);
+        width: 130px;
+        text-align: center;
+        border-radius: 0 0 0 10px;
+        display: flex;
+        flex-direction: column;
+        padding-top: 30px;
+        border: 1px solid rgb(80, 80, 80);
+    }
+
+    .menu .list-invisible{
+        right: -130px;
+    }
+
+    .menu .list-visible{
+        right: 0;
+        animation-name: selected-nav;
+        animation-duration: 0.2s;
+        animation-timing-function: ease-out;
+    }
+
+    .search-bar-div{
+        margin-right: 15vw;
+    }
+
+    @keyframes selected-nav {
+        from {right: -130px;}
+        to {right: 0;}
+      }
+    
+}
+
+@media only screen and (max-width: 665px) {
+    main .movie-card{
+        margin: 15px;
+        width: 200px;
+    }
+
+    main .movie-card img{
+        width: 100%;
+        height: 250px;
+    }
+
+    main .movie-card h3{
+        font-size: 15px;
+    }
+
+    main .selected-movie{
+        width: 90%;
+        height: 77%;
+        padding: 20px;
+        display: inline-block;
+        overflow-y: scroll;
+    }
+
+    main .selected-movie-content h2{
+        margin-bottom: 15px;
+        font-size: 22px;
+    }
+
+    main .selected-movie-content p{
+        padding: 2px 0;
+        line-height: 20px;
+        font-size: 14px;
+    }
+
+    main .selected-movie-content span{
+        font-weight: bold;
+        font-size: 15px;
+    }
+
+}
+
+@media only screen and (max-width: 1300px) {
+
+    main .selected-movie{
+        display: inline-block;
+        overflow-y: scroll;
+    }
+
+    main .selected-movie-video{
+        margin: 20px 0 0 0;
+    }
+
+    main .selected-movie-video iframe{
+        height: 40vw;
+    }
+
+    main .selected-movie-content img{
+        width: 150px;
+        height: 40px;
+        margin-right: 20px;
+    }
+}
